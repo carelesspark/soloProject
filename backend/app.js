@@ -1,15 +1,14 @@
-const http = require('http');
+const express = require('express');
+const path = require('path');
+const cors = require('cors');
+const app = express();
+const port = 8080;
+// const server = require('./router/server');
+const server = require('./router/server');
 
+app.use('/', server);
+app.use(cors());
 
-const hostname = '127.0.0.1';
-const port = 3000;
-
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Content-Type", "text/plain");
-  res.end("Hello World");
-});
-
-server.listen(port, hostname, () => {
-    console.log(`Server running at http://${hostname}:${port}/`);
+server.listen(port, () => {
+  console.log(`서버가 열렸습니다 : ${port}`);
 });
