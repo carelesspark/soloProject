@@ -1,8 +1,7 @@
 const express = require('express');
-const app = express();
-const server = require('http').createServer(app);
+const router = express.Router();
 
-app.get('/', (req, res) => {
+router.get('/', (req, res) => {
     res.send({ message : '서버 연동 완료' });
   });
 

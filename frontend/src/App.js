@@ -1,6 +1,9 @@
 import './App.css';
 import axios from 'axios';
 import React, {useState, useEffect} from 'react';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Index from "./components/index";
+
 
 function App(){
   const request = async() => {
@@ -13,9 +16,13 @@ function App(){
   });
 
   return (
-    <div className='App'>
-      <p>안녕하세요</p>
-    </div>
+    <React.Fragment>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Index/>}/>
+        </Routes>
+      </Router>
+    </React.Fragment>
   );
 }
 
